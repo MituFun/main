@@ -56,22 +56,17 @@ export function LanguageAdaptiveNavigation() {
 
     const pages: PageContent[] = [
         {
-            zh: { content: "嗨，别来无恙啊。", subContent: "你可以通过鼠标滚轮、键盘上左右键或者滑动屏幕翻到下一页" },
+            zh: { content: "嗨，别来无恙啊", subContent: "你可以通过滚轮、键盘左右键或者滑动屏幕翻到下一页" },
             en: { content: "Hi there!" }
         },
         {
-            zh: { content: "有朋自远方来，不亦乐乎？", subContent: "你好，我是 MituFun" },
+            zh: { content: "有朋自远方来，不亦乐乎", subContent: "你好，我是 MituFun" },
             en: { content: "Hello, nice to meet you.", subContent: "I'm MituFun" }
         },
         {
             zh: {
                 content: "想了解我？",
-                subContent: "或许你可以通过我的博客",
-                links: [
-                    { text: "个人博客", url: "https://blog.mitufun.top" },
-                    { text: "博客园", url: "https://www.cnblogs.com/luogu-int64" },
-                    { text: "洛谷博客", url: "https://www.luogu.com.cn/user/670262#article" },
-                ]
+                
             },
             en: {
                 content: "Wanna know my hobbies?",
@@ -81,6 +76,19 @@ export function LanguageAdaptiveNavigation() {
                     { text: "CNBlogs", url: "https://www.cnblogs.com/luogu-int64" },
                     { text: "Luogu Blog", url: "https://www.luogu.com.cn/user/670262#article" }
                 ]
+            }
+        },
+        {
+            zh: {
+                content: "或许你可以通过我的博客",
+                links: [
+                    { text: "个人博客", url: "https://blog.mitufun.top" },
+                    { text: "博客园", url: "https://www.cnblogs.com/luogu-int64" },
+                    { text: "洛谷博客", url: "https://www.luogu.com.cn/user/670262#article" },
+                ]
+            },
+            en: {
+                content: "",
             }
         },
         {
@@ -104,10 +112,6 @@ export function LanguageAdaptiveNavigation() {
         {
             zh: {
                 content: "想和我一起玩？",
-                subContent: "在 Minecraft 中与我相遇",
-                links: [
-                    { text: "我的 Minecraft 服务器", url: "https://yuxincraft.mitufun.top" },
-                ]
             },
             en: {
                 content: "Wanna play games with me?",
@@ -119,8 +123,7 @@ export function LanguageAdaptiveNavigation() {
         },
         {
             zh: {
-                content: "想和我一起玩？",
-                subContent: "在 Minecraft 中与我相遇",
+                content: "在 Minecraft 中与我相遇",
                 links: [
                     { text: "我的 Minecraft 服务器", url: "https://yuxincraft.mitufun.top" },
                 ]
