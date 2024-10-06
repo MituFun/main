@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import Head from 'next/head';
 import { useSwipeable } from 'react-swipeable';
 
 type PageContent = {
