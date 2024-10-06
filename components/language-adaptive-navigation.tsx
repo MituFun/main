@@ -127,25 +127,20 @@ export function LanguageAdaptiveNavigation() {
         }
     ];
     return (
-        <>
-            <Head>
-                <title>Hi, I'm MituFun</title>
-                <link rel="icon" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241006111158-M7iJazhAtKmcoM6UuK5nIeoYxacF8j.jpg" />
-            </Head>
             <div
                 className="h-screen w-screen overflow-hidden bg-gradient-to-br from-gray-900 to-black text-white"
                 onWheel={handleWheel}
                 {...handlers}
-            >
-            <AnimatePresence mode="wait">
-                <motion.div
-                    key={currentPage}
-                    initial={{ opacity: 0, x: 100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -100 }}
-                    transition={{ duration: 0.5 }}
-                    className="h-full w-full flex flex-col items-center justify-center px-4"
-                >
+        >
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={currentPage}
+                        initial={{ opacity: 0, x: 100 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -100 }}
+                        transition={{ duration: 0.5 }}
+                        className="h-full w-full flex flex-col items-center justify-center px-4"
+                    >
                     <h1 className="text-6xl font-bold mb-4 text-center text-glow">
                         {pages[currentPage][language].content}
                     </h1>
