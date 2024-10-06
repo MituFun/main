@@ -50,7 +50,7 @@ export function LanguageAdaptiveNavigation() {
     const handlers = useSwipeable({
         onSwipedLeft: () => setCurrentPage(prev => Math.min(prev + 1, pages.length - 1)),
         onSwipedRight: () => setCurrentPage(prev => Math.max(prev - 1, 0)),
-        preventDefaultTouchmoveEvent: true,
+        preventScrollOnSwipe: true,
         trackMouse: true
     });
 
@@ -126,7 +126,6 @@ export function LanguageAdaptiveNavigation() {
             }
         }
     ];
-
     return (
         <div
             className="h-screen w-screen overflow-hidden bg-gradient-to-br from-gray-900 to-black text-white"
@@ -134,7 +133,7 @@ export function LanguageAdaptiveNavigation() {
             {...handlers}
         >
             <Head>
-                <title>Hi, I am MituFun</title>
+                <title>Hi, I'm MituFun</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <AnimatePresence mode="wait">
