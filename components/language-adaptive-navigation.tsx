@@ -133,7 +133,7 @@ export function LanguageAdaptiveNavigation() {
             {...handlers}
         >
             <Head>
-                <title>Hi, I'm MituFun</title>
+                <title>Hi, I am MituFun</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <AnimatePresence mode="wait">
