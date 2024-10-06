@@ -122,20 +122,21 @@ export function LanguageAdaptiveNavigation() {
                 content: "期待再见。",
             },
             en: {
-                content: "See you.",
+                content: "Goodbye.",
             }
         }
     ];
     return (
-        <div
-            className="h-screen w-screen overflow-hidden bg-gradient-to-br from-gray-900 to-black text-white"
-            onWheel={handleWheel}
-            {...handlers}
-        >
+        <>
             <Head>
-                <title>Hi, I am MituFun</title>
-                <link rel="icon" href="/favicon.ico" />
+                <title>Hi, I'm MituFun</title>
+                <link rel="icon" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241006111158-M7iJazhAtKmcoM6UuK5nIeoYxacF8j.jpg" />
             </Head>
+            <div
+                className="h-screen w-screen overflow-hidden bg-gradient-to-br from-gray-900 to-black text-white"
+                onWheel={handleWheel}
+                {...handlers}
+            >
             <AnimatePresence mode="wait">
                 <motion.div
                     key={currentPage}
