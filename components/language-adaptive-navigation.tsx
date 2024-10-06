@@ -56,7 +56,7 @@ export function LanguageAdaptiveNavigation() {
 
     const pages: PageContent[] = [
         {
-            zh: { content: "嗨，别来无恙啊", subContent: "你可以通过滚轮、键盘左右键或者滑动屏幕翻到下一页" },
+            zh: { content: "嗨，别来无恙啊"},
             en: { content: "Hi there!" }
         },
         {
