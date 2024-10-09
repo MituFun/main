@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { useSwipeable } from 'react-swipeable';
+import { ChevronRight } from 'lucide-react';
 
 type PageContent = {
     zh: {
@@ -21,11 +22,11 @@ type PageContent = {
 export function LanguageAdaptiveNavigation() {
     const [currentPage, setCurrentPage] = useState(0);
     const [language, setLanguage] = useState<'en' | 'zh'>('en');
+    const [showHint, setShowHint] = useState(false);
 
     useEffect(() => {
-        // const userLanguage = navigator.language.split('-')[0];
-        // setLanguage(userLanguage === 'zh' ? 'zh' : 'en');
-        setLanguage('zh');
+        const userLanguage = navigator.language.split('-')[0];
+        setLanguage(userLanguage === 'zh' ? 'zh' : 'en');
 
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === 'ArrowRight') {
@@ -38,6 +39,15 @@ export function LanguageAdaptiveNavigation() {
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, []);
+
+    useEffect(() => {
+        setShowHint(false);
+        const timer = setTimeout(() => {
+            setShowHint(true);
+        }, 5000);
+
+        return () => clearTimeout(timer);
+    }, [currentPage]);
 
     const handleWheel = (event: React.WheelEvent) => {
         if (event.deltaY > 0 && currentPage < pages.length - 1) {
@@ -56,17 +66,22 @@ export function LanguageAdaptiveNavigation() {
 
     const pages: PageContent[] = [
         {
-            zh: { content: "å—¨ï¼Œåˆ«æ¥æ— æ™å•Š" },
+            zh: { content: "àË£¬±ðÀ´ÎÞí¦°¡¡£" },
             en: { content: "Hi there!" }
         },
         {
-            zh: { content: "æœ‰æœ‹è‡ªè¿œæ–¹æ¥ï¼Œä¸äº¦ä¹ä¹Ž", subContent: "ä½ å¥½ï¼Œæˆ‘æ˜¯ MituFun" },
+            zh: { content: "Óë¾ý³õÏàÊ¶£¬ÓÌÈç¹ÊÈË¹é¡£", subContent: "ÎÒÊÇ MituFun" },
             en: { content: "Hello, nice to meet you.", subContent: "I'm MituFun" }
         },
         {
             zh: {
-                content: "æƒ³äº†è§£æˆ‘ï¼Ÿ",
-
+                content: "ÏëÁË½âÎÒµÄ°®ºÃ£¿",
+                subContent: "Äã¿ÉÒÔÍ¨¹ýÎÒµÄ²©¿Í",
+                links: [
+                    { text: "¸öÈË²©¿Í", url: "https://blog.mitufun.top" },
+                    { text: "²©¿ÍÔ°", url: "https://www.cnblogs.com/luogu-int64" },
+                    { text: "Âå¹È²©¿Í", url: "https://www.luogu.com.cn/user/670262#article" },
+                ]
             },
             en: {
                 content: "Wanna know my hobbies?",
@@ -80,20 +95,7 @@ export function LanguageAdaptiveNavigation() {
         },
         {
             zh: {
-                content: "æˆ–è®¸ä½ å¯ä»¥é€šè¿‡æˆ‘çš„åšå®¢",
-                links: [
-                    { text: "ä¸ªäººåšå®¢", url: "https://blog.mitufun.top" },
-                    { text: "åšå®¢å›­", url: "https://www.cnblogs.com/luogu-int64" },
-                    { text: "æ´›è°·åšå®¢", url: "https://www.luogu.com.cn/user/670262#article" },
-                ]
-            },
-            en: {
-                content: "",
-            }
-        },
-        {
-            zh: {
-                content: "æˆ–è®¸ä¹Ÿå¯ä»¥é€šè¿‡ä¸€äº›è´¦å·",
+                content: "µ±È»£¬Ò²¿ÉÒÔÍ¨¹ýÒ»Ð©ÕËºÅ",
                 links: [
                     { text: "GitHub", url: "https://github.com/MituFun" },
                     { text: "Instagram", url: "https://www.instagram.com/mitufun123/" },
@@ -101,7 +103,7 @@ export function LanguageAdaptiveNavigation() {
                 ]
             },
             en: {
-                content: "Maybe also on some accounts",
+                content: "You can also check through some accounts",
                 links: [
                     { text: "GitHub", url: "https://github.com/MituFun" },
                     { text: "Instagram", url: "https://www.instagram.com/mitufun123/" },
@@ -111,21 +113,10 @@ export function LanguageAdaptiveNavigation() {
         },
         {
             zh: {
-                content: "æƒ³å’Œæˆ‘ä¸€èµ·çŽ©ï¼Ÿ",
-            },
-            en: {
-                content: "Wanna play games with me?",
-                subContent: "Meet me in Minecraft",
+                content: "ÏëºÍÎÒÒ»ÆðÍæ£¿",
+                subContent: "ÔÚ Minecraft ÖÐÓëÎÒÏàÓö",
                 links: [
-                    { text: "My Minecraft Server", url: "https://yuxincraft.mitufun.top" },
-                ]
-            }
-        },
-        {
-            zh: {
-                content: "åœ¨ Minecraft ä¸­ä¸Žæˆ‘ç›¸é‡",
-                links: [
-                    { text: "æˆ‘çš„ Minecraft æœåŠ¡å™¨", url: "https://yuxincraft.mitufun.top" },
+                    { text: "ÎÒµÄ Minecraft ·þÎñÆ÷", url: "https://yuxincraft.mitufun.top" },
                 ]
             },
             en: {
@@ -138,13 +129,14 @@ export function LanguageAdaptiveNavigation() {
         },
         {
             zh: {
-                content: "æœŸå¾…å†è§ã€‚",
+                content: "ÆÚ´ýÔÙ¼û¡£",
             },
             en: {
-                content: "Goodbye.",
+                content: "See you.",
             }
         }
     ];
+
     return (
         <div
             className="h-screen w-screen overflow-hidden bg-gradient-to-br from-gray-900 to-black text-white"
@@ -172,7 +164,7 @@ export function LanguageAdaptiveNavigation() {
                                 <Link
                                     key={index}
                                     href={link.url}
-                                    className="px-6 py-3 bg-white bg-opacity-10 rounded-full text-lg hover:bg-opacity-20 transition-all duration-300 transform hover:scale-105 hover:shadow-glow"
+                                    className="px-6 py-3 bg-white bg-opacity-10 rounded-full text-lg hover:bg-opacity-20 transition-all duration-300"
                                 >
                                     {link.text}
                                 </Link>
@@ -192,9 +184,20 @@ export function LanguageAdaptiveNavigation() {
                 </div>
             </div>
             <div className="absolute bottom-4 right-4 text-sm text-gray-400">
-                Developed by <a href="https://www.mitufun.top">MituFun</a>
+                Developed by MituFun
             </div>
-            <script defer src="https://admin.mitufun.top/script.js" data-website-id="f936b4d2-049c-4cdd-b7b3-ff77b13de782"></script>
+            <AnimatePresence>
+                {showHint && currentPage < pages.length - 1 && (
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 20 }}
+                        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-10 p-2 rounded-full"
+                    >
+                        <ChevronRight className="w-6 h-6 text-white animate-pulse" />
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }
