@@ -80,11 +80,9 @@ export function LanguageAdaptiveNavigation() {
         },
         {
             zh: {
-                content: "或许你可以通过我的博客",
+                content: "或许你可以通过我的个人博客",
                 links: [
-                    { text: "个人博客", url: "https://blog.mitufun.top" },
-                    { text: "博客园", url: "https://www.cnblogs.com/luogu-int64" },
-                    { text: "洛谷博客", url: "https://www.luogu.com.cn/user/670262#article" },
+                    { text: "个人博客", url: "https://blog.mitufun.top" }
                 ]
             },
             en: {
@@ -123,7 +121,7 @@ export function LanguageAdaptiveNavigation() {
         },
         {
             zh: {
-                content: "在 Minecraft 中与我相遇",
+                content: "在我的服务器中与我相遇",
                 links: [
                     { text: "我的 Minecraft 服务器", url: "https://yuxincraft.mitufun.top" },
                 ]
